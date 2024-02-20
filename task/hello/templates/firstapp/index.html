@@ -1,0 +1,11 @@
+{% extends 'firstapp/base.html' %}
+
+{% block title %}Index{% endblock title %}
+{% block header %}Main page{% endblock header %}
+{% block content %}Templates
+{% for i in cat %}
+<li>{{i}}</li>
+{% empty %} 
+<li>Категории продуктов отсутствуют</li>
+{% endfor %}
+{% endblock content %}
