@@ -4,15 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            background: #a6a6a6;
+        }
+
+        .myfield {
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            height: 25px;
+            width: 200px;
+            margin: 10px 10px 10px 0;
+        }
+    </style>
 </head>
-<body>
-    <form method="POST" novalidate>
+<body class="container">
+    <h2>Style for fields</h2>
+    <form method="post" novalidate>
         {% csrf_token %}
-        <div class="form-group">
+        <div>
             {% for field in form %}
-                <div>{{ field.label_tag }}</div>
-                <div>{{ field }}</div>
-                <div class="error">{{ field.errors }}</div>
+                <div class="row">
+                    {{field.label_tag}}
+                    <div class="col-md-10">{{field}}</div>
+                </div>
             {% endfor %}
         </div>
         <input type="submit" value="Send">
